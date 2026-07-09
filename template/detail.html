@@ -1,0 +1,187 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+&lt;!&ndash;[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]&ndash;&gt;
+&lt;!&ndash;[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]&ndash;&gt;
+&lt;!&ndash;[if IE 8]>         <html class="no-js lt-ie9"> <![endif]&ndash;&gt;
+&lt;!&ndash;[if gt IE 8]>&lt;!&ndash;dash;&gt; <html class="no-js"> &lt;!&ndash;<![endif]&ndash;&gt;
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HOTEL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	&lt;!&ndash; Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+	&lt;!&ndash; <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,900,700,900italic' rel='stylesheet' type='text/css'> &ndash;&gt;
+
+	&lt;!&ndash; Stylesheets &ndash;&gt;
+	&lt;!&ndash; Dropdown Menu &ndash;&gt;
+	<link rel="stylesheet" href="{% static 'css/superfish.css' %}">
+	&lt;!&ndash; Owl Slider &ndash;&gt;
+	&lt;!&ndash; <link rel="stylesheet" href="css/owl.carousel.css"> &ndash;&gt;
+	&lt;!&ndash; <link rel="stylesheet" href="css/owl.theme.default.min.css"> &ndash;&gt;
+	&lt;!&ndash; Date Picker &ndash;&gt;
+	<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.min.css' %}">
+	&lt;!&ndash; CS Select &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/cs-select.css" %}'>
+	<link rel="stylesheet" href='{% static "css/cs-skin-border.css" %}'>
+	&lt;!&ndash; Themify Icons &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/themify-icons.css" %}'>
+	&lt;!&ndash; Flat Icon &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/flaticon.css" %}'>
+	&lt;!&ndash; Icomoon &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/icomoon.css" %}'>
+	&lt;!&ndash; Flexslider  &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/flexslider.css" %}'>
+	<link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
+
+	&lt;!&ndash; Style &ndash;&gt;
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
+
+	&lt;!&ndash; Modernizr JS &ndash;&gt;
+	<script src='{% static "js/modernizr-2.6.2.min.js" %}'></script>
+	&lt;!&ndash; FOR IE9 below &ndash;&gt;
+	&lt;!&ndash;[if lt IE 9]>
+	<script src='{% static "js/respond.min.js" %}'></script>
+	<![endif]&ndash;&gt;
+
+	</head>
+
+	<body>
+
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div class="fh5co-parallax"
+			 {% if room_category == 'Budget' %}
+			 style="background-image: url('/static/images/budget.jpg');" data-stellar-background-ratio="0.5">
+			 {% elif room_category == 'Premium' %}
+			 style="background-image: url('/static/images/premium.jpg');" data-stellar-background-ratio="0.5">
+			 {% elif room_category == 'Grand' %}
+			 style="background-image: url('/static/images/grand.jpg');" data-stellar-background-ratio="0.5">
+			 {% endif %}
+
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+							<h1 class="text-center">Book Your Room</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>{{room_category}}</h1>
+					{% if room_category == 'Budget' %}
+					<p>Prices starting from 2000. Most economic and bang for buck rooms you can ever find!!!</p>
+					{% elif room_category == 'Premium' %}
+					<p>Prices starting from 5000. High level classy rooms with soothing ambience and view</p>
+					{% elif room_category == 'Grand' %}
+					<p>Prices starting from 10000. Luxury penthouses with your own bar and bartender and a spacious balcony to relax</p>
+					{% endif %}
+				</div>
+			</div>
+
+		</div>
+		</div>
+		</div>
+
+		<form action='' method="POST">
+        	{{form.as_p}}
+			{% csrf_token %}
+        	<button type="submit">Book Room</button>
+    	</form>
+
+	&lt;!&ndash; Javascripts &ndash;&gt;
+	<script src='{% static "js/jquery-2.1.4.min.js" %}'></script>
+	&lt;!&ndash; Dropdown Menu &ndash;&gt;
+	<script src='{% static "js/hoverIntent.js" %}'></script>
+	<script src='{% static "js/superfish.js" %}'></script>
+	&lt;!&ndash; Bootstrap &ndash;&gt;
+	<script src='{% static "js/bootstrap.min.js" %}'></script>
+	&lt;!&ndash; Waypoints &ndash;&gt;
+	<script src='{% static "js/jquery.waypoints.min.js" %}'></script>
+	&lt;!&ndash; Counters &ndash;&gt;
+	<script src='{% static "js/jquery.countTo.js" %}'></script>
+	&lt;!&ndash; Stellar Parallax &ndash;&gt;
+	<script src='{% static "js/jquery.stellar.min.js" %}'></script>
+	&lt;!&ndash; Owl Slider &ndash;&gt;
+	&lt;!&ndash; // <script src='{% static "js/owl.carousel.min.js" %}'></script> &ndash;&gt;
+	&lt;!&ndash; Date Picker &ndash;&gt;
+	<script src='{% static "js/bootstrap-datepicker.min.js" %}'></script>
+	&lt;!&ndash; CS Select &ndash;&gt;
+	<script src='{% static "js/classie.js" %}'></script>
+	<script src='{% static "js/selectFx.js" %}'></script>
+	&lt;!&ndash; Flexslider &ndash;&gt;
+	<script src='{% static "js/jquery.flexslider-min.js" %}'></script>
+
+	<script src='{% static "js/custom.js" %}'></script>
+
+</body>
+</html>-->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Detail</title>
+    <script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
+
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Room Image -->
+        <div class="image">
+            <img
+                src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+        </div>
+
+        <!-- Room Details -->
+        <div class="room">
+
+            <!-- Div 1: Back to Home -->
+            <div class="home">
+                <a href="{% url 'RoomListView' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
+            </div>
+
+            <!-- Div 2: Room Information -->
+            <div class="room-info">
+                <h1>{{room_category}}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id optio rem saepe culpa architecto tempora
+                    numquam debitis reiciendis! Quaerat laudantium consequuntur doloribus quod placeat consectetur
+                    veniam,
+                    rerum repellendus magnam labore. </p>
+            </div>
+
+            <!-- Div 3: Room Booking Form -->
+            <form action="" method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <button type="submit">Book Room</button>
+    </form>
+
+        </div> <!-- END Room Div -->
+
+    </div> <!-- END Main Content Div -->
+
+</body>
+
+</html>

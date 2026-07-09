@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+
+{% block title %}
+	Create an Account
+{% endblock %}
+
+{% block upper %}
+<style type="text/css">
+    body{
+      padding-top: 70px;
+
+    }
+
+  </style>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h1> Create an Account </h1>
+	<form method="POST" class="form-group">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button type="submit" class="btn btn-success">Register</button>
+	</form>
+{% endblock %}

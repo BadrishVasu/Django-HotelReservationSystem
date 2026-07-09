@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block upper %}
+	<style type="text/css">
+    	body{
+      	padding-top: 70px;
+
+    	}
+
+  	</style>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h1> Login Here</h1>
+		{% load crispy_forms_tags %}
+
+		<form method="POST" class="form-group">
+		    {% csrf_token %}
+		    {{ form|crispy }}
+            <p>Don't have an account? Create one <a href="/register">here</a></p>
+            <button type="submit" class="btn btn-success">Login</button>
+
+        </form>
+{% endblock %}
